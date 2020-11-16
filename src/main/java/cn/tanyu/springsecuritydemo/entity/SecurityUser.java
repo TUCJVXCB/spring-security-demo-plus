@@ -23,6 +23,8 @@ public class SecurityUser implements UserDetails {
 
     private String password;
 
+    private List<String> roles;
+
     private List<SimpleGrantedAuthority> authorities;
 
     @Override

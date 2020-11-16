@@ -48,6 +48,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
         SecurityUser securityUser = new SecurityUser();
         BeanUtils.copyProperties(user, securityUser);
+        securityUser.setRoles(roleList.stream().map(Role::getName).collect(Collectors.toList()));
         securityUser.setAuthorities(roleList.stream().map(e -> new SimpleGrantedAuthority(e.getName())).collect(Collectors.toList()));
 
         return securityUser;
